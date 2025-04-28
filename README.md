@@ -32,3 +32,29 @@ port=8080
 [auth]
 username=admin
 password=secret
+
+
+## output formmat
+it a JSON
+
+🧰 Must have Features
+Read config file passed via -file CLI flag
+
+Parse [section] headers and key=value pairs
+
+Ignore comments (#, ;) and empty lines
+
+Output config data in JSON or as Go structures
+
+Graceful error handling on malformed input
+
+📦 Future Enhancements
+ JSON/TOML/YAML output options
+
+ Environment variable overrides
+
+ CLI improvements with Cobra
+
+ Nested section support
+
+ Unit tests
