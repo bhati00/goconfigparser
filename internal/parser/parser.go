@@ -2,7 +2,7 @@ package parser
 
 import (
 	"fmt"
-	"goconfigParser/internal/models"
+	"goconfigparser/internal/models" // Adjust the import path as necessary
 	"strings"
 )
 
