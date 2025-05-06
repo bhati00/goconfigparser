@@ -1,19 +1,20 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"goconfigparser/internal/parser" // Assuming the parser package exists in your project
 	"os"
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Usage: configparser <config_file_path>")
+	configPath := flag.String("file", "", "Path to the configuration file")
+	flag.Parse()
+	if *configPath == "" {
+		fmt.Println("Please provide a configuration file path using -file flag")
 		os.Exit(1)
 	}
-
-	filePath := os.Args[1]
-	content, err := os.ReadFile(filePath)
+	content, err := os.ReadFile(*configPath)
 	if err != nil {
 		fmt.Printf("Error reading file: %v\n", err)
 		os.Exit(1)
@@ -24,5 +25,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Parsed config: %+v\n", config)
+	fmt.Printf("Parsed config %s\n", config)
 }
