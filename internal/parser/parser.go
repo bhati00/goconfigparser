@@ -14,15 +14,14 @@ func ParseConfig(fileContent string) (models.Config, error) {
 	var currentSection string
 	lines := strings.Split(fileContent, "\n")
 	for lineNum, rawLine := range lines {
-
-		if rawLine == "" { // ignore the empty lines
+		rawLine = strings.TrimSpace(rawLine) // remove leading and trailing spaces
+		if rawLine == "" {                   // ignore the empty lines
 			continue
 		}
-
-		if strings.Contains(rawLine, "#") || strings.Contains(rawLine, ";") { // ignore comments
+		if strings.HasPrefix(rawLine, "#") || strings.HasPrefix(rawLine, ";") { // ignore comments
 			continue
 		}
-
+		rawLine = strings.TrimRight(rawLine, "\r") // remove the trailing \r if any
 		// if it's a section header
 		if strings.HasPrefix(rawLine, "[") && strings.HasSuffix(rawLine, "]") {
 			currentSection = strings.TrimSpace(rawLine[1 : len(rawLine)-1])
