@@ -1,0 +1,20 @@
+{
+ "sections": {
+  "database": {
+   "name": "myappdb",
+   "password": "secret",
+   "port": "5432",
+   "user": "admin"
+  },
+  "features": {
+   "enable_logging": "yes",
+   "max_users": "1000",
+   "timeout_seconds": "30.5"
+  },
+  "server": {
+   "enable_tls": "true",
+   "host": "localhost",
+   "port": "8080"
+  }
+ }
+}

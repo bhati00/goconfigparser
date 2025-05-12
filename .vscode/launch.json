@@ -11,7 +11,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/cmd/main.go",
-            "args": ["-file=config.ini"]
+            "args": ["--input=config.ini"]
         }
     ]
 }
